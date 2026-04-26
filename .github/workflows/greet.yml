@@ -13,3 +13,13 @@ jobs:
         run: chmod +x scripts/greet.sh
       - name: Run Greet
         run: ./scripts/greet.sh "Omotolani"
+  farewell:
+    runs-on: ubuntu-latest
+    needs: greet
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Make Script Executable
+        run: chmod +x scripts/greet.sh
+      - name: Run Greet
+        run: ./scripts/greet.sh "Goodbye"
