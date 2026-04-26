@@ -1,0 +1,15 @@
+name: Greeting Pipeline # Label for our Workflow
+on:
+  push:
+    branches: [main]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Make Script Executable
+        run: chmod +x scripts/greet.sh
+      - name: Run Greet
+        run: ./scripts/greet.sh "Omotolani"
