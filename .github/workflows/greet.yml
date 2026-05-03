@@ -23,3 +23,15 @@ jobs:
         run: chmod +x scripts/greet.sh
       - name: Run Farewell
         run: ./scripts/greet.sh "Goodbye"
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Make Script Executable
+        run: chmod +x scripts/secrets.sh
+      - name: Run Secrets
+        run: ./scripts/secrets.sh "Secret Action"
+        env:
+          USERNAME: ${{ vars.USERNAME }} # Environment Variables: vars
+          PASSWORD: ${{ secrets.PASSWORD }} # Environment Secrets: secrets
